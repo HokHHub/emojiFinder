@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Inter';
+  src: url(fonts/Inter.woff);
+}
+
 body {
   background: #EDEEF3;
   margin: 0;
