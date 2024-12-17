@@ -1,11 +1,12 @@
 import { data } from './data.js';
-import { dataCopy } from './dataCopy.js';
+let dataCopy = []
 
 let section = document.querySelector('.emojies__grid')
 let form = document.querySelector('.form')
 let input = document.querySelector('#input')
 
-let addNewCard = (data) => {
+// Создаем все карточки
+let addNewCard = (data) => { 
     let newCard = document.createElement('div')
     newCard.classList.add('emojies__card', 'card')
     newCard.innerHTML =
@@ -15,6 +16,8 @@ let addNewCard = (data) => {
     section.appendChild(newCard)
 }
 
+
+// Создаем новые карточки при поиске
 let addNewCardInSearch = (data, index) => {
     let newCard = document.createElement('div')
     newCard.classList.add('emojies__card', 'card')
@@ -29,16 +32,16 @@ if(input.value === ''){
     for (let i = 0; i < data.length; i++) {
         addNewCard(data[i])
     }
-} else {
-    
 }
 
+
+// Начинаем организовывать поиск
 form.addEventListener('input', (event) => {
     event.preventDefault()
     console.log('запрос отправлен');
     section.innerHTML = ``
     for (let index = 0; index < data.length; index++) {
-        if (data[index].title.toLowerCase().includes(input.value.toLowerCase()) || data[index].keywords.toLowerCase().includes(input.value.toLowerCase())){
+        if (data[index].title.toLowerCase().includes(input.value.toLowerCase()) || data[index].keywords.toLowerCase().includes(input.value.toLowerCase())){ // сверяем то, что вписал пользователь с основными данными
             dataCopy[0] = data[index]       
             addNewCardInSearch(dataCopy, 0)
         }       
