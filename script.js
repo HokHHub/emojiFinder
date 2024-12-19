@@ -6,18 +6,18 @@ let form = document.querySelector('.form')
 let input = document.querySelector('#input')
 
 // Создаем все карточки
-let addNewCard = (data) => { 
-    let newCard = document.createElement('div')
-    newCard.classList.add('emojies__card', 'card')
-    newCard.innerHTML =
-        `<p class="card__ico">${data.symbol}</p>
-    <a href="#" class="card__name">${data.title}</a>
-    <p class="card__description">${Array.from(new Set(data.keywords.split(' '))).join(' ')}</p>`
-    section.appendChild(newCard)
-}
+// let addNewCard = (data) => { 
+//     let newCard = document.createElement('div')
+//     newCard.classList.add('emojies__card', 'card')
+//     newCard.innerHTML =
+//         `<p class="card__ico">${data.symbol}</p>
+//     <a href="#" class="card__name">${data.title}</a>
+//     <p class="card__description">${Array.from(new Set(data.keywords.split(' '))).join(' ')}</p>`
+//     section.appendChild(newCard)
+// }
 
 
-// Создаем новые карточки при поиске
+// Создаем карточки
 let addNewCardInSearch = (data, index) => {
     let newCard = document.createElement('div')
     newCard.classList.add('emojies__card', 'card')
@@ -30,7 +30,7 @@ let addNewCardInSearch = (data, index) => {
 
 if(input.value === ''){
     for (let i = 0; i < data.length; i++) {
-        addNewCard(data[i])
+        addNewCardInSearch(data, i)
     }
 }
 
